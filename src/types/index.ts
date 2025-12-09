@@ -16,6 +16,7 @@ export interface Product {
   image: string;
   category: ProductCategory;
   extras?: ProductExtra[];
+  exclusions?: ProductExclusion[];
   isCombo?: boolean;
   isBestSeller?: boolean;
   isAvailable: boolean;
@@ -37,11 +38,17 @@ export interface ProductExtra {
   price: number;
 }
 
+export interface ProductExclusion {
+  id: string;
+  name: string;
+}
+
 export interface CartItem {
   id: string;
   product: Product;
   quantity: number;
   selectedExtras: ProductExtra[];
+  selectedExclusions: ProductExclusion[];
   notes?: string;
 }
 
@@ -49,19 +56,25 @@ export type OrderType = 'salon' | 'takeaway' | 'delivery';
 
 export type PaymentMethod = 'cash' | 'card' | 'transfer' | 'mixed';
 
+export type DocumentType = 'ticket' | 'factura' | 'both';
+
 export interface Order {
   id: string;
   items: CartItem[];
   orderType: OrderType;
   paymentMethod?: PaymentMethod;
+  documentType?: DocumentType;
   tableNumber?: number;
   customerName?: string;
   customerPhone?: string;
   customerAddress?: string;
+  customerCuit?: string;
   deliveryFee?: number;
   subtotal: number;
   tax: number;
   total: number;
+  amountReceived?: number;
+  change?: number;
   status: OrderStatus;
   createdAt: Date;
   cashierName: string;
