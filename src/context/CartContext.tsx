@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { CartItem, Product, ProductExtra, OrderType } from '@/types';
+import { CartItem, Product, ProductExtra, ProductExclusion, OrderType } from '@/types';
 
 interface CartContextType {
   items: CartItem[];
@@ -9,7 +9,7 @@ interface CartContextType {
   customerPhone?: string;
   customerAddress?: string;
   deliveryFee: number;
-  addItem: (product: Product, extras?: ProductExtra[], notes?: string) => void;
+  addItem: (product: Product, extras?: ProductExtra[], exclusions?: ProductExclusion[], notes?: string) => void;
   removeItem: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   clearCart: () => void;
@@ -36,12 +36,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const deliveryFee = orderType === 'delivery' ? DELIVERY_FEE : 0;
 
-  const addItem = (product: Product, extras: ProductExtra[] = [], notes?: string) => {
+  const addItem = (product: Product, extras: ProductExtra[] = [], exclusions: ProductExclusion[] = [], notes?: string) => {
     const newItem: CartItem = {
       id: `${product.id}-${Date.now()}`,
       product,
       quantity: 1,
       selectedExtras: extras,
+      selectedExclusions: exclusions,
       notes,
     };
     setItems(prev => [...prev, newItem]);

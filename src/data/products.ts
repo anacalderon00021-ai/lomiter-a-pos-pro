@@ -1,4 +1,4 @@
-import { Product, ProductExtra } from "@/types";
+import { Product, ProductExtra, ProductExclusion } from "@/types";
 
 export const productExtras: ProductExtra[] = [
   { id: 'extra-1', name: 'Queso extra', price: 350 },
@@ -9,15 +9,27 @@ export const productExtras: ProductExtra[] = [
   { id: 'extra-6', name: 'Papas fritas', price: 800 },
 ];
 
+export const productExclusions: ProductExclusion[] = [
+  { id: 'exc-1', name: 'Sin cebolla' },
+  { id: 'exc-2', name: 'Sin tomate' },
+  { id: 'exc-3', name: 'Sin lechuga' },
+  { id: 'exc-4', name: 'Sin mayonesa' },
+  { id: 'exc-5', name: 'Sin ketchup' },
+  { id: 'exc-6', name: 'Sin mostaza' },
+  { id: 'exc-7', name: 'Sin pickles' },
+  { id: 'exc-8', name: 'Sin ají' },
+];
+
 export const products: Product[] = [
   {
     id: 'lom-1',
     name: 'Lomito Completo',
     description: 'Lomo, lechuga, tomate, huevo, jamón, queso',
     price: 4500,
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450f58cd?w=400&h=300&fit=crop',
     category: 'lomitos',
     extras: productExtras,
+    exclusions: productExclusions,
     isBestSeller: true,
     isAvailable: true,
     preparationTime: 15,
@@ -30,6 +42,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop',
     category: 'lomitos',
     extras: productExtras,
+    exclusions: productExclusions,
     isAvailable: true,
     preparationTime: 12,
   },
@@ -41,6 +54,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400&h=300&fit=crop',
     category: 'lomitos',
     extras: productExtras,
+    exclusions: productExclusions,
     isBestSeller: true,
     isAvailable: true,
     preparationTime: 18,
@@ -53,6 +67,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&h=300&fit=crop',
     category: 'hamburguesas',
     extras: productExtras,
+    exclusions: productExclusions,
     isAvailable: true,
     preparationTime: 12,
   },
@@ -64,6 +79,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&h=300&fit=crop',
     category: 'hamburguesas',
     extras: productExtras,
+    exclusions: productExclusions,
     isBestSeller: true,
     isAvailable: true,
     preparationTime: 15,
@@ -76,6 +92,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1612392062126-26d83c3c3c5f?w=400&h=300&fit=crop',
     category: 'panchos',
     extras: productExtras.slice(0, 3),
+    exclusions: productExclusions.slice(3, 8),
     isAvailable: true,
     preparationTime: 5,
   },
@@ -87,6 +104,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1619740455993-9e612b50b603?w=400&h=300&fit=crop',
     category: 'panchos',
     extras: productExtras.slice(0, 3),
+    exclusions: productExclusions.slice(3, 8),
     isAvailable: true,
     preparationTime: 8,
   },
@@ -144,6 +162,8 @@ export const products: Product[] = [
     price: 6500,
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450f58cd?w=400&h=300&fit=crop',
     category: 'combos',
+    extras: productExtras,
+    exclusions: productExclusions,
     isCombo: true,
     isBestSeller: true,
     isAvailable: true,
@@ -156,6 +176,8 @@ export const products: Product[] = [
     price: 7200,
     image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&h=300&fit=crop',
     category: 'combos',
+    extras: productExtras,
+    exclusions: productExclusions,
     isCombo: true,
     isAvailable: true,
     preparationTime: 18,
